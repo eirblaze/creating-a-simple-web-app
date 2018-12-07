@@ -6,12 +6,17 @@ identidock:
     ENV: DEV 
   volumes:
     - ./app:/app
-  links:
-    - dnmonster
-    - redis
+  networks:
+    - n-simple-web-app
+  #links:
+  #  - dnmonster
+  #  - redis
 
 dnmonster:
   image: amouat/dnmonster:1.0
 
 redis:
   image: redis:3.0
+
+networks:
+  n-simple-web-app:
